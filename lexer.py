@@ -5,7 +5,7 @@ import ply.lex as lex
 # Tokens
 tokens = (
     'VARIABLE', 
-    'CONJUCTION',
+    'CONJUNCTION',
     'DISJUNCTION',
     'NEGATION',
     'IMPLICATION',
@@ -16,7 +16,7 @@ tokens = (
 )
 
 t_VARIABLE = r'[p-z]'
-t_CONJUCTION = r'\^'
+t_CONJUNCTION = r'\^'
 t_DISJUNCTION = r'o'
 t_NEGATION = r'\~'
 t_IMPLICATION = r'=>'
