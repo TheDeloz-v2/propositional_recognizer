@@ -26,6 +26,7 @@ for expression in expressions:
 # Imprimir resultados
 for i in range(len(expressions)):
     print(f'{expressions[i]} = {results[i]}')
+    print()
     
 # Resultados esperados
 # (p=>q)^p = ('^', ('=>', 'p', 'q'), 'p')

@@ -10,6 +10,11 @@ def p_expression_variable(p):
     'expression : VARIABLE'
     p[0] = p[1]
     
+# Expresion: Constante
+def p_expression_constant(p):
+    'expression : CONSTANT'
+    p[0] = p[1]
+    
 # Expresion: Parentesis
 def p_expression_parenthesis(p):
     'expression : PARENIZQ expression PARENDER'
