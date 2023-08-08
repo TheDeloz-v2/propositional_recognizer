@@ -39,7 +39,7 @@ def p_expression_biconditional(p):
 
 # Error
 def p_error(p):
-    print('Error de sintaxis')
+    print(f'Error de sintaxis en {p.value}')
 
 # Construir el parser
 parser = yacc.yacc()
