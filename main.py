@@ -81,5 +81,5 @@ for i, result in enumerate(results):
     
     # Guardar grafo dirigido en carpeta graphs
     dir = 'grafos/'
-    plt.savefig(f'{dir}grafo-{i}.png')
+    plt.savefig(f'{dir}grafo-{i+1}.png')
     plt.close()

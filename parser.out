@@ -1,0 +1,335 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> expression
+Rule 1     expression -> VARIABLE
+Rule 2     expression -> CONSTANT
+Rule 3     expression -> PARENIZQ expression PARENDER
+Rule 4     expression -> expression CONJUNCTION expression
+Rule 5     expression -> expression DISJUNCTION expression
+Rule 6     expression -> expression IMPLICATION expression
+Rule 7     expression -> expression BICONDITIONAL expression
+Rule 8     expression -> NEGATION expression
+
+Terminals, with rules where they appear
+
+BICONDITIONAL        : 7
+CONJUNCTION          : 4
+CONSTANT             : 2
+DISJUNCTION          : 5
+IMPLICATION          : 6
+NEGATION             : 8
+PARENDER             : 3
+PARENIZQ             : 3
+VARIABLE             : 1
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 3 4 4 5 5 6 6 7 7 8 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . VARIABLE
+    (2) expression -> . CONSTANT
+    (3) expression -> . PARENIZQ expression PARENDER
+    (4) expression -> . expression CONJUNCTION expression
+    (5) expression -> . expression DISJUNCTION expression
+    (6) expression -> . expression IMPLICATION expression
+    (7) expression -> . expression BICONDITIONAL expression
+    (8) expression -> . NEGATION expression
+
+    VARIABLE        shift and go to state 2
+    CONSTANT        shift and go to state 3
+    PARENIZQ        shift and go to state 4
+    NEGATION        shift and go to state 5
+
+    expression                     shift and go to state 1
+
+state 1
+
+    (0) S' -> expression .
+    (4) expression -> expression . CONJUNCTION expression
+    (5) expression -> expression . DISJUNCTION expression
+    (6) expression -> expression . IMPLICATION expression
+    (7) expression -> expression . BICONDITIONAL expression
+
+    CONJUNCTION     shift and go to state 6
+    DISJUNCTION     shift and go to state 7
+    IMPLICATION     shift and go to state 8
+    BICONDITIONAL   shift and go to state 9
+
+
+state 2
+
+    (1) expression -> VARIABLE .
+
+    CONJUNCTION     reduce using rule 1 (expression -> VARIABLE .)
+    DISJUNCTION     reduce using rule 1 (expression -> VARIABLE .)
+    IMPLICATION     reduce using rule 1 (expression -> VARIABLE .)
+    BICONDITIONAL   reduce using rule 1 (expression -> VARIABLE .)
+    $end            reduce using rule 1 (expression -> VARIABLE .)
+    PARENDER        reduce using rule 1 (expression -> VARIABLE .)
+
+
+state 3
+
+    (2) expression -> CONSTANT .
+
+    CONJUNCTION     reduce using rule 2 (expression -> CONSTANT .)
+    DISJUNCTION     reduce using rule 2 (expression -> CONSTANT .)
+    IMPLICATION     reduce using rule 2 (expression -> CONSTANT .)
+    BICONDITIONAL   reduce using rule 2 (expression -> CONSTANT .)
+    $end            reduce using rule 2 (expression -> CONSTANT .)
+    PARENDER        reduce using rule 2 (expression -> CONSTANT .)
+
+
+state 4
+
+    (3) expression -> PARENIZQ . expression PARENDER
+    (1) expression -> . VARIABLE
+    (2) expression -> . CONSTANT
+    (3) expression -> . PARENIZQ expression PARENDER
+    (4) expression -> . expression CONJUNCTION expression
+    (5) expression -> . expression DISJUNCTION expression
+    (6) expression -> . expression IMPLICATION expression
+    (7) expression -> . expression BICONDITIONAL expression
+    (8) expression -> . NEGATION expression
+
+    VARIABLE        shift and go to state 2
+    CONSTANT        shift and go to state 3
+    PARENIZQ        shift and go to state 4
+    NEGATION        shift and go to state 5
+
+    expression                     shift and go to state 10
+
+state 5
+
+    (8) expression -> NEGATION . expression
+    (1) expression -> . VARIABLE
+    (2) expression -> . CONSTANT
+    (3) expression -> . PARENIZQ expression PARENDER
+    (4) expression -> . expression CONJUNCTION expression
+    (5) expression -> . expression DISJUNCTION expression
+    (6) expression -> . expression IMPLICATION expression
+    (7) expression -> . expression BICONDITIONAL expression
+    (8) expression -> . NEGATION expression
+
+    VARIABLE        shift and go to state 2
+    CONSTANT        shift and go to state 3
+    PARENIZQ        shift and go to state 4
+    NEGATION        shift and go to state 5
+
+    expression                     shift and go to state 11
+
+state 6
+
+    (4) expression -> expression CONJUNCTION . expression
+    (1) expression -> . VARIABLE
+    (2) expression -> . CONSTANT
+    (3) expression -> . PARENIZQ expression PARENDER
+    (4) expression -> . expression CONJUNCTION expression
+    (5) expression -> . expression DISJUNCTION expression
+    (6) expression -> . expression IMPLICATION expression
+    (7) expression -> . expression BICONDITIONAL expression
+    (8) expression -> . NEGATION expression
+
+    VARIABLE        shift and go to state 2
+    CONSTANT        shift and go to state 3
+    PARENIZQ        shift and go to state 4
+    NEGATION        shift and go to state 5
+
+    expression                     shift and go to state 12
+
+state 7
+
+    (5) expression -> expression DISJUNCTION . expression
+    (1) expression -> . VARIABLE
+    (2) expression -> . CONSTANT
+    (3) expression -> . PARENIZQ expression PARENDER
+    (4) expression -> . expression CONJUNCTION expression
+    (5) expression -> . expression DISJUNCTION expression
+    (6) expression -> . expression IMPLICATION expression
+    (7) expression -> . expression BICONDITIONAL expression
+    (8) expression -> . NEGATION expression
+
+    VARIABLE        shift and go to state 2
+    CONSTANT        shift and go to state 3
+    PARENIZQ        shift and go to state 4
+    NEGATION        shift and go to state 5
+
+    expression                     shift and go to state 13
+
+state 8
+
+    (6) expression -> expression IMPLICATION . expression
+    (1) expression -> . VARIABLE
+    (2) expression -> . CONSTANT
+    (3) expression -> . PARENIZQ expression PARENDER
+    (4) expression -> . expression CONJUNCTION expression
+    (5) expression -> . expression DISJUNCTION expression
+    (6) expression -> . expression IMPLICATION expression
+    (7) expression -> . expression BICONDITIONAL expression
+    (8) expression -> . NEGATION expression
+
+    VARIABLE        shift and go to state 2
+    CONSTANT        shift and go to state 3
+    PARENIZQ        shift and go to state 4
+    NEGATION        shift and go to state 5
+
+    expression                     shift and go to state 14
+
+state 9
+
+    (7) expression -> expression BICONDITIONAL . expression
+    (1) expression -> . VARIABLE
+    (2) expression -> . CONSTANT
+    (3) expression -> . PARENIZQ expression PARENDER
+    (4) expression -> . expression CONJUNCTION expression
+    (5) expression -> . expression DISJUNCTION expression
+    (6) expression -> . expression IMPLICATION expression
+    (7) expression -> . expression BICONDITIONAL expression
+    (8) expression -> . NEGATION expression
+
+    VARIABLE        shift and go to state 2
+    CONSTANT        shift and go to state 3
+    PARENIZQ        shift and go to state 4
+    NEGATION        shift and go to state 5
+
+    expression                     shift and go to state 15
+
+state 10
+
+    (3) expression -> PARENIZQ expression . PARENDER
+    (4) expression -> expression . CONJUNCTION expression
+    (5) expression -> expression . DISJUNCTION expression
+    (6) expression -> expression . IMPLICATION expression
+    (7) expression -> expression . BICONDITIONAL expression
+
+    PARENDER        shift and go to state 16
+    CONJUNCTION     shift and go to state 6
+    DISJUNCTION     shift and go to state 7
+    IMPLICATION     shift and go to state 8
+    BICONDITIONAL   shift and go to state 9
+
+
+state 11
+
+    (8) expression -> NEGATION expression .
+    (4) expression -> expression . CONJUNCTION expression
+    (5) expression -> expression . DISJUNCTION expression
+    (6) expression -> expression . IMPLICATION expression
+    (7) expression -> expression . BICONDITIONAL expression
+
+    CONJUNCTION     reduce using rule 8 (expression -> NEGATION expression .)
+    DISJUNCTION     reduce using rule 8 (expression -> NEGATION expression .)
+    IMPLICATION     reduce using rule 8 (expression -> NEGATION expression .)
+    BICONDITIONAL   reduce using rule 8 (expression -> NEGATION expression .)
+    $end            reduce using rule 8 (expression -> NEGATION expression .)
+    PARENDER        reduce using rule 8 (expression -> NEGATION expression .)
+
+  ! CONJUNCTION     [ shift and go to state 6 ]
+  ! DISJUNCTION     [ shift and go to state 7 ]
+  ! IMPLICATION     [ shift and go to state 8 ]
+  ! BICONDITIONAL   [ shift and go to state 9 ]
+
+
+state 12
+
+    (4) expression -> expression CONJUNCTION expression .
+    (4) expression -> expression . CONJUNCTION expression
+    (5) expression -> expression . DISJUNCTION expression
+    (6) expression -> expression . IMPLICATION expression
+    (7) expression -> expression . BICONDITIONAL expression
+
+    CONJUNCTION     reduce using rule 4 (expression -> expression CONJUNCTION expression .)
+    DISJUNCTION     reduce using rule 4 (expression -> expression CONJUNCTION expression .)
+    $end            reduce using rule 4 (expression -> expression CONJUNCTION expression .)
+    PARENDER        reduce using rule 4 (expression -> expression CONJUNCTION expression .)
+    IMPLICATION     shift and go to state 8
+    BICONDITIONAL   shift and go to state 9
+
+  ! IMPLICATION     [ reduce using rule 4 (expression -> expression CONJUNCTION expression .) ]
+  ! BICONDITIONAL   [ reduce using rule 4 (expression -> expression CONJUNCTION expression .) ]
+  ! CONJUNCTION     [ shift and go to state 6 ]
+  ! DISJUNCTION     [ shift and go to state 7 ]
+
+
+state 13
+
+    (5) expression -> expression DISJUNCTION expression .
+    (4) expression -> expression . CONJUNCTION expression
+    (5) expression -> expression . DISJUNCTION expression
+    (6) expression -> expression . IMPLICATION expression
+    (7) expression -> expression . BICONDITIONAL expression
+
+    CONJUNCTION     reduce using rule 5 (expression -> expression DISJUNCTION expression .)
+    DISJUNCTION     reduce using rule 5 (expression -> expression DISJUNCTION expression .)
+    $end            reduce using rule 5 (expression -> expression DISJUNCTION expression .)
+    PARENDER        reduce using rule 5 (expression -> expression DISJUNCTION expression .)
+    IMPLICATION     shift and go to state 8
+    BICONDITIONAL   shift and go to state 9
+
+  ! IMPLICATION     [ reduce using rule 5 (expression -> expression DISJUNCTION expression .) ]
+  ! BICONDITIONAL   [ reduce using rule 5 (expression -> expression DISJUNCTION expression .) ]
+  ! CONJUNCTION     [ shift and go to state 6 ]
+  ! DISJUNCTION     [ shift and go to state 7 ]
+
+
+state 14
+
+    (6) expression -> expression IMPLICATION expression .
+    (4) expression -> expression . CONJUNCTION expression
+    (5) expression -> expression . DISJUNCTION expression
+    (6) expression -> expression . IMPLICATION expression
+    (7) expression -> expression . BICONDITIONAL expression
+
+    CONJUNCTION     reduce using rule 6 (expression -> expression IMPLICATION expression .)
+    DISJUNCTION     reduce using rule 6 (expression -> expression IMPLICATION expression .)
+    IMPLICATION     reduce using rule 6 (expression -> expression IMPLICATION expression .)
+    BICONDITIONAL   reduce using rule 6 (expression -> expression IMPLICATION expression .)
+    $end            reduce using rule 6 (expression -> expression IMPLICATION expression .)
+    PARENDER        reduce using rule 6 (expression -> expression IMPLICATION expression .)
+
+  ! CONJUNCTION     [ shift and go to state 6 ]
+  ! DISJUNCTION     [ shift and go to state 7 ]
+  ! IMPLICATION     [ shift and go to state 8 ]
+  ! BICONDITIONAL   [ shift and go to state 9 ]
+
+
+state 15
+
+    (7) expression -> expression BICONDITIONAL expression .
+    (4) expression -> expression . CONJUNCTION expression
+    (5) expression -> expression . DISJUNCTION expression
+    (6) expression -> expression . IMPLICATION expression
+    (7) expression -> expression . BICONDITIONAL expression
+
+    CONJUNCTION     reduce using rule 7 (expression -> expression BICONDITIONAL expression .)
+    DISJUNCTION     reduce using rule 7 (expression -> expression BICONDITIONAL expression .)
+    IMPLICATION     reduce using rule 7 (expression -> expression BICONDITIONAL expression .)
+    BICONDITIONAL   reduce using rule 7 (expression -> expression BICONDITIONAL expression .)
+    $end            reduce using rule 7 (expression -> expression BICONDITIONAL expression .)
+    PARENDER        reduce using rule 7 (expression -> expression BICONDITIONAL expression .)
+
+  ! CONJUNCTION     [ shift and go to state 6 ]
+  ! DISJUNCTION     [ shift and go to state 7 ]
+  ! IMPLICATION     [ shift and go to state 8 ]
+  ! BICONDITIONAL   [ shift and go to state 9 ]
+
+
+state 16
+
+    (3) expression -> PARENIZQ expression PARENDER .
+
+    CONJUNCTION     reduce using rule 3 (expression -> PARENIZQ expression PARENDER .)
+    DISJUNCTION     reduce using rule 3 (expression -> PARENIZQ expression PARENDER .)
+    IMPLICATION     reduce using rule 3 (expression -> PARENIZQ expression PARENDER .)
+    BICONDITIONAL   reduce using rule 3 (expression -> PARENIZQ expression PARENDER .)
+    $end            reduce using rule 3 (expression -> PARENIZQ expression PARENDER .)
+    PARENDER        reduce using rule 3 (expression -> PARENIZQ expression PARENDER .)
+
