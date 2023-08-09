@@ -21,6 +21,8 @@ class Node:
         
     def _str_helper(self, depth):
         ret = '\t' * depth + self.label + '\n'
+        if None in self.children:
+            return ''
         for child in self.children:
             ret += child._str_helper(depth + 1)
         return ret
@@ -39,7 +41,6 @@ precedence = (
 def p_expression_variable(p):
     'expression : VARIABLE'
     p[0] = Node(p[1])
-    
     
 # Expresion: Constante
 def p_expression_constant(p):
@@ -71,7 +72,10 @@ def p_expression_negation(p):
 
 # Error
 def p_error(p):
-    print(f'Error de sintaxis en {p.value}')
+    try:
+        print(f'Error de sintaxis en {p.value}')
+    except:
+        print('Error de sintaxis')
 
 # Construir el parser
 parser = yacc.yacc()

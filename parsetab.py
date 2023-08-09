@@ -27,12 +27,12 @@ for _k, _v in _lr_goto_items.items():
 del _lr_goto_items
 _lr_productions = [
   ("S' -> expression","S'",1,None,None,None),
-  ('expression -> VARIABLE','expression',1,'p_expression_variable','syntax.py',39),
-  ('expression -> CONSTANT','expression',1,'p_expression_constant','syntax.py',45),
-  ('expression -> PARENIZQ expression PARENDER','expression',3,'p_expression_parenthesis','syntax.py',50),
-  ('expression -> expression CONJUNCTION expression','expression',3,'p_expression_binop','syntax.py',55),
-  ('expression -> expression DISJUNCTION expression','expression',3,'p_expression_binop','syntax.py',56),
-  ('expression -> expression IMPLICATION expression','expression',3,'p_expression_binop','syntax.py',57),
-  ('expression -> expression BICONDITIONAL expression','expression',3,'p_expression_binop','syntax.py',58),
-  ('expression -> NEGATION expression','expression',2,'p_expression_negation','syntax.py',66),
+  ('expression -> VARIABLE','expression',1,'p_expression_variable','syntax.py',38),
+  ('expression -> CONSTANT','expression',1,'p_expression_constant','syntax.py',43),
+  ('expression -> PARENIZQ expression PARENDER','expression',3,'p_expression_parenthesis','syntax.py',48),
+  ('expression -> expression CONJUNCTION expression','expression',3,'p_expression_binop','syntax.py',53),
+  ('expression -> expression DISJUNCTION expression','expression',3,'p_expression_binop','syntax.py',54),
+  ('expression -> expression IMPLICATION expression','expression',3,'p_expression_binop','syntax.py',55),
+  ('expression -> expression BICONDITIONAL expression','expression',3,'p_expression_binop','syntax.py',56),
+  ('expression -> NEGATION expression','expression',2,'p_expression_negation','syntax.py',64),
 ]

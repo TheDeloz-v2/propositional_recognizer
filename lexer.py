@@ -30,7 +30,7 @@ t_ignore = ' \t'
 
 # Funcion para captar errores lexicos
 def t_error(t):
-    print(f'Caracter inaceptable: {t.value[0]}')
+    print(f'\nCaracter inaceptable: {t.value[0]}')
     t.lexer.skip(1)
 
 # Funcion para captar nueva linea

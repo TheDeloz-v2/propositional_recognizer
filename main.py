@@ -30,7 +30,7 @@ for expression in expressions:
     
 # Imprimir resultados
 for i in range(len(expressions)):
-    print('Expresion '+str(i+1)+':')
+    print('\nExpresion '+str(i+1)+':')
     print(f'{expressions[i]} =\n {results[i]}')
     print()
     
@@ -62,24 +62,28 @@ def graph_tree(tree):
 
 # Generar grafo dirigido para cada expresion
 for i, result in enumerate(results):
-    G = graph_tree(result)
-    labels = nx.get_node_attributes(G, 'label')
-    
-    # Asignar capas a los nodos
-    for layer, nodes in enumerate(reversed(tuple(nx.topological_generations(G)))):
-        for node in nodes:
-            G.nodes[node]["layer"] = layer
+    try:
+        G = graph_tree(result)
+        labels = nx.get_node_attributes(G, 'label')
+        
+        # Asignar capas a los nodos
+        for layer, nodes in enumerate(reversed(tuple(nx.topological_generations(G)))):
+            for node in nodes:
+                G.nodes[node]["layer"] = layer
 
-    pos = nx.multipartite_layout(G, subset_key="layer", align='horizontal')
+        pos = nx.multipartite_layout(G, subset_key="layer", align='horizontal')
 
-    fig, ax = plt.subplots(figsize=(4, 6))
-    nx.draw_networkx_nodes(G, pos, node_size=1200, node_color='white', edgecolors='black')
-    nx.draw_networkx_edges(G, pos, arrows=True, arrowsize=35, edge_color='black')
-    nx.draw_networkx_labels(G, pos, labels, font_size=15)
-    ax.set_title(expressions[i], fontsize=20)
-    fig.tight_layout()
-    
-    # Guardar grafo dirigido en carpeta graphs
-    dir = 'grafos/'
-    plt.savefig(f'{dir}grafo-{i+1}.png')
-    plt.close()
+        fig, ax = plt.subplots(figsize=(4, 6))
+        nx.draw_networkx_nodes(G, pos, node_size=1200, node_color='white', edgecolors='black')
+        nx.draw_networkx_edges(G, pos, arrows=True, arrowsize=35, edge_color='black')
+        nx.draw_networkx_labels(G, pos, labels, font_size=15)
+        ax.set_title(expressions[i], fontsize=20)
+        fig.tight_layout()
+        
+        # Guardar grafo dirigido en carpeta graphs
+        dir = 'grafos/'
+        plt.savefig(f'{dir}grafo-{i+1}.png')
+        print(f'Grafo {i+1} generado correctamente')
+        plt.close()
+    except:
+        print(f'! Error al generar grafo para expresion {i+1}')
